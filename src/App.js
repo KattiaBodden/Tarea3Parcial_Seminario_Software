@@ -34,7 +34,7 @@ function App() {
     setData({ ...data })
   }
 
-  const eliminarArticulo = (producto) => {
+  /*const eliminarArticulo = (producto) => {
     var opcion = confirm("Desea eliminar el artículo")
     if (opcion){
       var contador = 0;
@@ -48,8 +48,7 @@ function App() {
       this.setState({data: articulos})
     }
     return
-
-  }
+  }*/
 
   // App > Navbar > Carro > Burbuja > Numero de productos
 

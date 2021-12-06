@@ -8,8 +8,7 @@ export const Carro = ({ cantidad, productos }) => {
 
     const handleMostrarCarro = _ => setMostrarCarro(!mostrarCarro)
 
-    const productos = props.data.articulos
-    const eliminarArticulo = props.eliminarArticulo
+    //const eliminarArticulo = props.eliminarArticulo
 
     let subTotal = productos.reduce((acum, prod) => (prod.cantidad * prod.precio) + acum, 0)
     let impto = subTotal * 0.15
@@ -34,7 +33,7 @@ export const Carro = ({ cantidad, productos }) => {
                                     return (
                                         <li style={styles.li}>
                                             <img height={25} alt={x.nombre} src={x.imagen} />
-                                            <span><button onClick={eliminarArticulo} style={styles.deleteButton}>X</button> {x.nombre}</span>
+                                            <span><button style={styles.deleteButton}>X</button> {x.nombre}</span>
                                             <span>
                                                 ({x.cantidad} x {x.precio.toLocaleString()}) = <strong>{(x.cantidad * x.precio).toLocaleString()}</strong>
                                             </span>
