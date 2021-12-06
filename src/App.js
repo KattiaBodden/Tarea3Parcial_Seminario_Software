@@ -5,11 +5,11 @@ import { Navbar } from './components/Navbar'
 // base de datos
 const informacion = {
   articulos: [
-    {id: 1, nombre: 'Homepod Mini', precio: 99, imagen: '/images/homepod-mini.jpg'},
-    {id: 2, nombre: 'iMac', precio: 1200, imagen: '/images/imac.jpeg'},
-    {id: 3, nombre: 'iPad Mini', precio: 400, imagen: '/images/ipad-mini.jpg'},
-    {id: 4, nombre: 'iPhone 13 Pro', precio: 1100, imagen: '/images/iphone13-pro.jpg'},
-    {id: 5, nombre: 'Macbook Pro', precio: 1600, imagen: '/images/macbook-pro.png'}
+    { id: 1, nombre: 'Homepod Mini', precio: 99, imagen: '/images/homepod-mini.jpg' },
+    { id: 2, nombre: 'iMac', precio: 1200, imagen: '/images/imac.jpeg' },
+    { id: 3, nombre: 'iPad Mini', precio: 400, imagen: '/images/ipad-mini.jpg' },
+    { id: 4, nombre: 'iPhone 13 Pro', precio: 1100, imagen: '/images/iphone13-pro.jpg' },
+    { id: 5, nombre: 'Macbook Pro', precio: 1600, imagen: '/images/macbook-pro.png' }
   ],
   carrito: [
     //{id: 1, nombre: 'Homepod Mini', precio: 99, imagen: '/images/homepod-mini.jpg', cantidad: 2},
@@ -19,19 +19,36 @@ const informacion = {
 
 function App() {
   const [data, setData] = useState(informacion)
-  
+
   const agregarAlCarro = (producto) => {
     // 1- Verificar si el producto clickeado ya està en el carrito
     if (data.carrito.find(x => x.id === producto.id)) {
       // 2- En caso de ya estar en el carrito, aumentamos la cantidad en 1
-      const carritoCopia = data.carrito.map(x => x.id === producto.id ? ({...x, cantidad: x.cantidad + 1}) : x)
+      const carritoCopia = data.carrito.map(x => x.id === producto.id ? ({ ...x, cantidad: x.cantidad + 1 }) : x)
       data.carrito = carritoCopia
-      setData({...data})
+      setData({ ...data })
       return
     }
 
-    data.carrito.push({...producto, cantidad: 1})
-    setData({...data})
+    data.carrito.push({ ...producto, cantidad: 1 })
+    setData({ ...data })
+  }
+
+  const eliminarArticulo = (producto) => {
+    var opcion = confirm("Desea eliminar el artículo")
+    if (opcion){
+      var contador = 0;
+      var articulos = this.state.data;
+      articulos.map[(producto) => {
+          if(articulos.id==producto.id){
+            articulos.splice(contador, 1);
+          }
+          contador++;
+      }];
+      this.setState({data: articulos})
+    }
+    return
+
   }
 
   // App > Navbar > Carro > Burbuja > Numero de productos
