@@ -8,7 +8,7 @@ export const Container = styled.article`
     margin-bottom: 30px;
     padding: 20px;
     text-align: center;
-    width: 450px;
+    width: 410px;
 `
 
 export const Image = styled.div`
