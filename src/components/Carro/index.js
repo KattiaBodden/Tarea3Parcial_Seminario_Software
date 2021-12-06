@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Burbuja } from '../Burbuja'
 import styles from './estilos'
 
@@ -11,6 +11,10 @@ export const Carro = ({ cantidad, productos }) => {
     let subTotal = productos.reduce((acum, prod) => (prod.cantidad * prod.precio) + acum, 0)
     let impto = subTotal * 0.15
     let totalPagar = subTotal + impto
+
+    useEffect(() => {
+        console.log('Use Effect Ejecutado con éxito')
+    });
 
     return (
         <div style={styles.carroContenedor}>
